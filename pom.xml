@@ -11,6 +11,9 @@
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
+		<sonar.organization>mariangolea</sonar.organization>
+  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  		<sonar.login>16a3e33108b64dbd52550997820d2f2384afeb70</sonar.login>
 	</properties>
 	<build>
 		<plugins>
@@ -29,11 +32,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<distributionManagement>
-		<repository>
-			<id>github</id>
-			<name>GitHub Marian Golea Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/mariangolea/bankparsers</url>
-		</repository>
-	</distributionManagement>
 </project>

@@ -35,6 +35,9 @@ jobs:
           - v1-dependencies-
 
       - run: mvn dependency:go-offline
+      - run: 
+          name: Analyze on SonarCloud
+          command: mvn verify sonar:sonar -Dsonar.projectKey=mariangolea_bankparsers
 
       - save_cache:
           paths:
@@ -44,3 +47,8 @@ jobs:
       # run tests!
       - run: mvn integration-test
 
+workflows:
+  main:
+    jobs:
+      - build:
+          context: SonarCloud
