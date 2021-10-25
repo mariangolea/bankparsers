@@ -1,4 +1,4 @@
-JAVADOC: &emsp;[![JavaDoc](docs/javadoc.png)](https://mariangolea.github.io/csvtransactionparser/)  
+JAVADOC: &emsp;[![JavaDoc](docs/javadoc.png)](https://mariangolea.github.io/bankparsers/)  
 
 CircleCI: &emsp;[![CircleCI](https://circleci.com/gh/mariangolea/bankparsers/tree/master.svg?style=svg)](https://circleci.com/gh/mariangolea/bankparsers/tree/master)  
   
