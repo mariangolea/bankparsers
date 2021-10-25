@@ -30,6 +30,14 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<reportOutputDirectory>.</reportOutputDirectory>
+					<destDir>docs</destDir>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
