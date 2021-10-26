@@ -1,14 +1,18 @@
 package org.mariangolea.fintrack.bank.transaction.api;
 
+import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.Objects;
 
+/**
+ * Abstract support for grouping transactions.
+ */
 public abstract class BankTransactionAbstractGroup implements BankTransactionGroupInterface {
 
     private final String categoryName;
 
     public BankTransactionAbstractGroup(final String categoryName) {
         Objects.requireNonNull(categoryName);
-
         this.categoryName = categoryName;
     }
 
@@ -19,7 +23,14 @@ public abstract class BankTransactionAbstractGroup implements BankTransactionGro
 
     @Override
     public int getTransactionsNumber(){
-        return getContainedTransactions().size();
+    	Collection<BankTransaction> transactions = getContainedTransactions();
+        return transactions == null ? 0 : transactions.size();
+    }
+    
+    @Override
+    public int getGroupsNumber(){
+    	Collection<BankTransactionGroupInterface> groups = getContainedGroups();
+        return groups == null ? 0 : groups.size();
     }
 
     @Override
@@ -41,12 +52,17 @@ public abstract class BankTransactionAbstractGroup implements BankTransactionGro
 
     @Override
     public String toString() {
+    	BigDecimal amount = getTotalAmount();
+    	float totalAmount = amount == null ? 0 : amount.floatValue();
         return categoryName + "\n" 
-                + getTotalAmount().floatValue() + "\n" 
+                + totalAmount + "\n" 
                 + getTransactionsNumber() + " transactions" + "\n" 
                 + getGroupsNumber() + " groups";
     }
 
+    /**
+     * Comparison solely for ordering based on category name.
+     */
     @Override
     public int compareTo(BankTransactionGroupInterface o) {
         return categoryName.compareTo(o.getCategoryName());

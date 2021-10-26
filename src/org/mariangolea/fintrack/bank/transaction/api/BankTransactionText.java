@@ -3,6 +3,9 @@ package org.mariangolea.fintrack.bank.transaction.api;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Original bank transaction text in the file it was parsed from.
+ */
 public class BankTransactionText implements Serializable {
 
 	private static final long serialVersionUID = 4424491335719995607L;
@@ -12,6 +15,7 @@ public class BankTransactionText implements Serializable {
     private String originalContent;
     
     public BankTransactionText() {
+    	this(null);
     }
 
     public BankTransactionText(String originalContent) {
@@ -26,32 +30,30 @@ public class BankTransactionText implements Serializable {
         this.originalContent = originalContent;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
-    }
+    public Long getId() {
+		return id;
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final BankTransactionText other = (BankTransactionText) obj;
-        if (!Objects.equals(this.originalContent, other.originalContent)) {
-            return false;
-        }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        return true;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, originalContent);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BankTransactionText other = (BankTransactionText) obj;
+		return Objects.equals(id, other.id) && Objects.equals(originalContent, other.originalContent);
+	}
 
     @Override
     public String toString() {
