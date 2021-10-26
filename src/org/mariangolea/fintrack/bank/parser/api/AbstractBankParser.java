@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -66,14 +67,14 @@ public abstract class AbstractBankParser {
         if (file == null) {
             return fileResponse;
         }
-        List<String> lines = loadFile(file);
+        Collection<String> lines = loadFile(file);
 
         fileResponse = parseResponse(lines, file);
 
         return fileResponse;
     }
 	
-	protected List<String> loadFile(final File file) {
+	protected Collection<String> loadFile(final File file) {
         final List<String> response = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String tempLine;
@@ -87,7 +88,7 @@ public abstract class AbstractBankParser {
         return response;
     }
 	
-	protected ParseResponse parseResponse(List<String> content, File file) {
+	protected ParseResponse parseResponse(Collection<String> content, File file) {
 		List<BankTransaction> result = new ArrayList<>();
 
 		List<String> toConsume = new ArrayList<>(content);

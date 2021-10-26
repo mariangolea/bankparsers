@@ -6,12 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mariangolea.fintrack.bank.transaction.api.BankTransaction;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
@@ -47,23 +45,5 @@ public class BankParserFactoryTest {
 		
 		match = response.getParser(Arrays.asList("Moama", "Toooama"));
 		assertNull(match);
-	}
-	
-	private class AbstractBankParserMock extends AbstractBankParser{
-
-		public AbstractBankParserMock(Bank bank) {
-			super(bank);
-		}
-
-		@Override
-		public BankTransaction parseTransaction(List<String> toConsume) {
-			return null;
-		}
-
-		@Override
-		public int findNextTransactionLineIndex(List<String> toConsume) {
-			return 0;
-		}
-	
 	}
 }
