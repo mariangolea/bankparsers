@@ -26,7 +26,7 @@ public abstract class AbstractBankParser {
 	public static final String UNRECOGNIZED_TRANSACTION = "Unrecognized Transaction";
 
 	public final Bank bank;
-	private BankParserUtils utils;
+	protected BankParserUtils utils;
 	
 	/**
 	 * Construct a bank parser based on an actual bank description object.
