@@ -3,16 +3,17 @@ package org.mariangolea.fintrack.bank.parser.api;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Locale;
 
 import org.junit.Rule;
@@ -59,14 +60,14 @@ public class AbstractBankParserTest {
 	public void testParseTransactions() {
 		try {
 			folder.create();
-			Collection<String> lines = Arrays.asList("one", "label,1","relevant", "FakeTransaction" );
+			Collection<String> lines = Arrays.asList("one", "label,1", "relevant", "FakeTransaction");
 			File tempFile = folder.newFile();
 			writeFile(tempFile, lines);
 			ParseResponse response = test.parseTransactions(tempFile);
 			assertNotNull(response);
 			assertEquals(0, response.parsedTransactions.size());
-			
-			BankTransactionInterface transaction = mock(BankTransactionInterface.class);
+
+			BankTransactionInterface transaction = new BankTransaction();
 			transaction.setContentLines(1);
 			test = new AbstractBankParserMock(bank, transaction);
 			response = test.parseTransactions(tempFile);
@@ -87,5 +88,85 @@ public class AbstractBankParserTest {
 		}
 
 		return file;
+	}
+
+	private class BankTransaction implements BankTransactionInterface {
+		private int contentLines = 0;
+
+		@Override
+		public int compareTo(BankTransactionInterface arg0) {
+			return 0;
+		}
+
+		@Override
+		public String getOriginalContent() {
+			return null;
+		}
+
+		@Override
+		public int getContentLines() {
+			return contentLines;
+		}
+
+		@Override
+		public Date getStartDate() {
+			return null;
+		}
+
+		@Override
+		public Date getCompletedDate() {
+			return null;
+		}
+
+		@Override
+		public BigDecimal getCreditAmount() {
+			return BigDecimal.ZERO;
+		}
+
+		@Override
+		public BigDecimal getDebitAmount() {
+			return BigDecimal.ZERO;
+		}
+
+		@Override
+		public String getDescription() {
+			return null;
+		}
+
+		@Override
+		public void setStartDate(Date startDate) {
+
+		}
+
+		@Override
+		public void setCompletedDate(Date completedDate) {
+		}
+
+		@Override
+		public void setCreditAmount(BigDecimal creditAmount) {
+		}
+
+		@Override
+		public void setDebitAmount(BigDecimal debitAmount) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void setDescription(String description) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void setOriginalContent(String originalContent) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void setContentLines(int contentLines) {
+			this.contentLines = contentLines;
+		}
 	}
 }
