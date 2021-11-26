@@ -3,6 +3,7 @@ package org.mariangolea.fintrack.bank.parser.api;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -18,7 +19,7 @@ import org.junit.Rule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.TemporaryFolder;
-import org.mariangolea.fintrack.bank.transaction.api.BankTransaction;
+import org.mariangolea.fintrack.bank.transaction.api.BankTransactionInterface;
 
 public class AbstractBankParserTest {
 
@@ -65,7 +66,7 @@ public class AbstractBankParserTest {
 			assertNotNull(response);
 			assertEquals(0, response.parsedTransactions.size());
 			
-			BankTransaction transaction = new BankTransaction();
+			BankTransactionInterface transaction = mock(BankTransactionInterface.class);
 			transaction.setContentLines(1);
 			test = new AbstractBankParserMock(bank, transaction);
 			response = test.parseTransactions(tempFile);

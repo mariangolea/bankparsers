@@ -16,7 +16,7 @@ public interface BankTransactionGroupInterface extends Comparable<BankTransactio
 
     public Collection<BankTransactionGroupInterface> getContainedGroups();
 
-    public Collection<BankTransaction> getContainedTransactions();
+    public Collection<BankTransactionInterface> getContainedTransactions();
 
     public BigDecimal getTotalAmount();
 }

@@ -23,7 +23,7 @@ public abstract class BankTransactionAbstractGroup implements BankTransactionGro
 
     @Override
     public int getTransactionsNumber(){
-    	Collection<BankTransaction> transactions = getContainedTransactions();
+    	Collection<BankTransactionInterface> transactions = getContainedTransactions();
         return transactions == null ? 0 : transactions.size();
     }
     

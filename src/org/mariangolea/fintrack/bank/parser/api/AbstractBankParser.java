@@ -13,7 +13,7 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.mariangolea.fintrack.bank.transaction.api.BankTransaction;
+import org.mariangolea.fintrack.bank.transaction.api.BankTransactionInterface;
 
 /**
  * Abstract transactions parser based on a given bank object.
@@ -45,7 +45,7 @@ public abstract class AbstractBankParser {
 	 * @param toConsume list of strings describing full details of the transaction
 	 * @return constructed transaction object
 	 */
-	public abstract BankTransaction parseTransaction(List<String> toConsume);
+	public abstract BankTransactionInterface parseTransaction(List<String> toConsume);
 
 	/**
 	 * Look ahead for the index of next transaction. <br>
@@ -89,7 +89,7 @@ public abstract class AbstractBankParser {
     }
 	
 	protected ParseResponse parseResponse(Collection<String> content, File file) {
-		List<BankTransaction> result = new ArrayList<>();
+		List<BankTransactionInterface> result = new ArrayList<>();
 
 		List<String> toConsume = new ArrayList<>(content);
 		int transactionsIndex = utils.getTransactionsIndex(toConsume);
@@ -104,7 +104,7 @@ public abstract class AbstractBankParser {
 		toConsume = toConsume.subList(transactionsIndex + 1, toConsume.size());
 
 		List<String> unrecognizedStrings = new ArrayList<>();
-		BankTransaction transaction;
+		BankTransactionInterface transaction;
 		int consumedLines;
 		int foundTransactionsNumber = 0;
 		while (!toConsume.isEmpty()) {

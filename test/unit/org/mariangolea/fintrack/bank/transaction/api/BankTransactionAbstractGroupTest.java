@@ -39,7 +39,7 @@ public class BankTransactionAbstractGroupTest {
 
 		assertEquals(first, first);
 		assertNotEquals(first, null);
-		assertNotEquals(first, new BankTransactionText());
+		assertNotEquals(first, "Hey");
 
 		BankTransactionAbstractGroupMock second = new BankTransactionAbstractGroupMock("one", null);
 		assertEquals(first, second);
@@ -94,7 +94,7 @@ public class BankTransactionAbstractGroupTest {
 		}
 
 		@Override
-		public Collection<BankTransaction> getContainedTransactions() {
+		public Collection<BankTransactionInterface> getContainedTransactions() {
 			return null;
 		}
 
