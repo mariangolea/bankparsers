@@ -1,4 +1,4 @@
-package org.mariangolea.fintrack.bank.parser.api;
+package org.mariangolea.fintrack.bank.parser;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,7 +20,10 @@ import org.junit.Rule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.TemporaryFolder;
-import org.mariangolea.fintrack.bank.transaction.api.BankTransactionInterface;
+import org.mariangolea.fintrack.bank.Bank;
+import org.mariangolea.fintrack.bank.MockBank;
+import org.mariangolea.fintrack.bank.transaction.BankTransactionInterface;
+import org.mariangolea.fintrack.bank.transaction.BankTransactionTextInterface;
 
 public class AbstractBankParserTest {
 
@@ -91,6 +94,7 @@ public class AbstractBankParserTest {
 	}
 
 	private class BankTransaction implements BankTransactionInterface {
+		private static final long serialVersionUID = 1L;
 		private int contentLines = 0;
 
 		@Override
@@ -99,7 +103,7 @@ public class AbstractBankParserTest {
 		}
 
 		@Override
-		public String getOriginalContent() {
+		public BankTransactionTextInterface getOriginalContent() {
 			return null;
 		}
 
@@ -159,7 +163,7 @@ public class AbstractBankParserTest {
 		}
 
 		@Override
-		public void setOriginalContent(String originalContent) {
+		public void setOriginalContent(BankTransactionTextInterface originalContent) {
 			// TODO Auto-generated method stub
 
 		}

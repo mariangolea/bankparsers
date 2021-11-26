@@ -1,4 +1,4 @@
-package org.mariangolea.fintrack.bank.parser.api;
+package org.mariangolea.fintrack.bank;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

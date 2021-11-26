@@ -1,7 +1,9 @@
-package org.mariangolea.fintrack.bank.transaction.api;
+package org.mariangolea.fintrack.bank.transaction.group;
 
 import java.math.BigDecimal;
 import java.util.Collection;
+
+import org.mariangolea.fintrack.bank.transaction.BankTransactionInterface;
 
 /**
  * Transactions group interface. 

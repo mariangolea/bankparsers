@@ -1,4 +1,4 @@
-package org.mariangolea.fintrack.bank.transaction.api;
+package org.mariangolea.fintrack.bank.transaction.group;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.Collection;
 
 import org.junit.jupiter.api.Test;
+import org.mariangolea.fintrack.bank.transaction.BankTransactionInterface;
 import org.mockito.Mock;
 
 public class BankTransactionAbstractGroupTest {

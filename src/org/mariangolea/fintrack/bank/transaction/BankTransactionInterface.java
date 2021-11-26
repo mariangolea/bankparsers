@@ -1,4 +1,4 @@
-package org.mariangolea.fintrack.bank.transaction.api;
+package org.mariangolea.fintrack.bank.transaction;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -11,7 +11,7 @@ import java.util.Date;
  */
 public interface BankTransactionInterface extends Serializable, Comparable<BankTransactionInterface>{
 
-	public String getOriginalContent();
+	public BankTransactionTextInterface getOriginalContent();
 
 	public int getContentLines();
 
@@ -35,7 +35,7 @@ public interface BankTransactionInterface extends Serializable, Comparable<BankT
 
 	public void setDescription(String description);
 
-	public void setOriginalContent(String originalContent);
+	public void setOriginalContent(BankTransactionTextInterface originalContent);
 
 	public void setContentLines(int contentLines);
 }

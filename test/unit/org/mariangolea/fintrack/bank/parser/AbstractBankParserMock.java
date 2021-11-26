@@ -1,8 +1,9 @@
-package org.mariangolea.fintrack.bank.parser.api;
+package org.mariangolea.fintrack.bank.parser;
 
 import java.util.List;
 
-import org.mariangolea.fintrack.bank.transaction.api.BankTransactionInterface;
+import org.mariangolea.fintrack.bank.Bank;
+import org.mariangolea.fintrack.bank.transaction.BankTransactionInterface;
 
 public class AbstractBankParserMock extends AbstractBankParser{
 	BankTransactionInterface toReturn;

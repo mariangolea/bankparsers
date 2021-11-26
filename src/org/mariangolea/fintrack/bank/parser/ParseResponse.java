@@ -1,4 +1,4 @@
-package org.mariangolea.fintrack.bank.parser.api;
+package org.mariangolea.fintrack.bank.parser;
 
 import java.io.File;
 import java.util.Collection;
@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-import org.mariangolea.fintrack.bank.transaction.api.BankTransactionInterface;
+import org.mariangolea.fintrack.bank.transaction.BankTransactionInterface;
 
 /**
  * Encapsulation of a bank transactions parsing result.

@@ -1,4 +1,4 @@
-package org.mariangolea.fintrack.bank.parser.api;
+package org.mariangolea.fintrack.bank.parser;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,6 +10,7 @@ import java.util.Locale;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mariangolea.fintrack.bank.MockBank;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)

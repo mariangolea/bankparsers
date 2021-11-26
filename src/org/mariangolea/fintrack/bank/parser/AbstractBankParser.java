@@ -1,4 +1,4 @@
-package org.mariangolea.fintrack.bank.parser.api;
+package org.mariangolea.fintrack.bank.parser;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,7 +13,8 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.mariangolea.fintrack.bank.transaction.api.BankTransactionInterface;
+import org.mariangolea.fintrack.bank.Bank;
+import org.mariangolea.fintrack.bank.transaction.BankTransactionInterface;
 
 /**
  * Abstract transactions parser based on a given bank object.

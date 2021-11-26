@@ -1,4 +1,4 @@
-package org.mariangolea.fintrack.bank.parser.api;
+package org.mariangolea.fintrack.bank;
 
 import java.text.DateFormat;
 import java.text.NumberFormat;
